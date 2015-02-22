@@ -51,8 +51,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <meta name="viewport" content="width=device-width">
 </head>
 <body unresolved>
-  <div id="main">
-    Hello world!   <!-- You'll be deleting this line in the course -->
+  <div id="main">    
 
     <!--
     Everything from here to the <script> tag below is the skeleton of your
@@ -90,7 +89,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   -->
   <script src="js/resumeBuilder.js"></script>
 
-
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <!--
   These scripts are written in JavaScript. You'll be breaking them down as part of
   a quiz. Essentially, the next few lines are checking to see if you have not
@@ -127,7 +126,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       document.getElementById('projects').style.display = 'none';
     }
     if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
+      document.getElementById('education').style.background = 'black';
     }
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('letsConnect').style.display = 'none';

@@ -29,7 +29,7 @@ var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
-var HTMLworkStart = '<div class="work-entry"></div>';
+var HTMLworkStart  = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
@@ -40,7 +40,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectImage = '<img src="%data%" alt="image">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
@@ -57,14 +57,34 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
+/*
+function inName(name){
+  console.log("name "+name);
+  var fname =name.split(" ")[0].charAt(0).toUpperCase()+name.split(" ")[0].slice(1).toLowerCase();
+  if(name.split(" ")[1]!=null){
+    fname +=" "+name.split(" ")[1].toUpperCase();
+  }
+  console.log("name "+name+" fname "+fname);
+  return fname;
+}
+*/
 
+function inName(name){
+  console.log("name "+name);
+  name =name.trim().split(" ");
+  name[1]=name[1].toUpperCase();
+
+  name[0]=name[0].slice(0,1).toUpperCase()+name[0].slice(1).toLowerCase();
+console.log(name[0]);
+  return name[0]+" "+name[1];
+}
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = inName() || function(){};
+    var iName = inName($("#name").html()) || function(){};
     $('#name').html(iName);  
   });
 });
@@ -85,7 +105,8 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  
+  logClicks(loc.pageX,loc.pageY);
 });
 
 
